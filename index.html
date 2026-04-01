@@ -190,11 +190,18 @@
                     </label>
                 </div>
 
-                <div class="pt-4">
+                <div class="pt-4 text-center">
                     <button type="submit" id="submitBtn" class="w-full bg-vj-blue hover:bg-blue-700 text-white font-black py-5 rounded-2xl shadow-xl transition-all transform active:scale-95 text-lg uppercase tracking-tight">
                         Baixar Guia Gratuito Agora
                     </button>
-                    <p id="formStatus" class="hidden text-center mt-4 font-bold"></p>
+                    
+                    <!-- Mensagens de Status e Link de Backup -->
+                    <div class="mt-6 space-y-2">
+                        <p id="formStatus" class="hidden font-bold text-vj-blue"></p>
+                        <p id="downloadFallback" class="hidden text-xs text-slate-400">
+                            O download não iniciou? <a id="manualLink" href="#" target="_blank" class="text-vj-blue font-bold underline hover:text-blue-700 transition-colors">Clique aqui</a> para baixar manualmente.
+                        </p>
+                    </div>
                 </div>
             </form>
         </section>
@@ -252,6 +259,8 @@
     <script>
         const form = document.getElementById('radarForm');
         const status = document.getElementById('formStatus');
+        const fallback = document.getElementById('downloadFallback');
+        const manualLink = document.getElementById('manualLink');
         const btn = document.getElementById('submitBtn');
 
         form.onsubmit = async (e) => {
@@ -260,9 +269,14 @@
             btn.innerText = "PREPARANDO DOWNLOAD...";
             
             // Substitua pelo link direto do seu PDF no Google Drive
-            const pdfDownloadLink = 'https://drive.google.com/uc?export=download&id=1TBHZsJFjNVtrk-9Q0RA1TbJhDrRVcaOA';
+            // Exemplo: 'https://drive.google.com/uc?export=download&id=1AbC_ID_DO_ARQUIVO'
+            const pdfId = '1TBHZsJFjNVtrk-9Q0RA1TbJhDrRVcaOA';
+            const pdfDownloadLink = `https://drive.google.com/uc?export=download&id=${pdfId}`;
             const scriptURL = 'https://script.google.com/macros/s/AKfycbzAREpv87mMLfN70nyzzOWEn2rybWXwpFFzfixo8oqrgqNlChArgM07xNL5-B6ubPzSMQ/exec';
             
+            // Atualiza o link manual preventivamente
+            manualLink.href = pdfDownloadLink;
+
             try {
                 // Envia para a planilha e banco de dados
                 await fetch(scriptURL, { 
@@ -275,9 +289,16 @@
                 status.classList.remove('hidden', 'text-red-500');
                 status.classList.add('text-vj-blue');
                 
-                // Inicia o download imediato abrindo o link em uma nova aba
+                // Inicia o download imediato
                 window.open(pdfDownloadLink, '_blank');
                 
+                // Mostra o link de backup após 5 segundos, caso o bloqueador de pop-ups tenha agido
+                setTimeout(() => {
+                    fallback.classList.remove('hidden');
+                    fallback.classList.add('animate-bounce'); // Pequena animação para chamar atenção
+                    setTimeout(() => fallback.classList.remove('animate-bounce'), 2000);
+                }, 5000);
+
                 form.reset();
             } catch (error) {
                 status.innerText = "Ops! Erro ao processar. Mas você pode tentar novamente.";
