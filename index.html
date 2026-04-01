@@ -11,10 +11,10 @@
             theme: {
                 extend: {
                     colors: {
-                        'vj-blue': '#008CE7',      /* Azul do "Voando" */
-                        'vj-orange': '#F14124',    /* Laranja do "Junto" */
-                        'vj-navy': '#1D2D35',      /* Azul Marinho da base */
-                        'vj-bg-light': '#F8FBFE'   /* Fundo levemente azulado */
+                        'vj-blue': '#008CE7',
+                        'vj-orange': '#F14124',
+                        'vj-navy': '#1D2D35',
+                        'vj-bg-light': '#F8FBFE'
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -25,36 +25,33 @@
     </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
-        
-        body {
-            scroll-behavior: smooth;
-        }
-
+        body { scroll-behavior: smooth; }
         .dotted-path {
             background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
             background-size: 24px 24px;
         }
-
         .header-curve {
             background-color: #008CE7;
             border-bottom-left-radius: 60px;
             border-bottom-right-radius: 60px;
         }
-
         @media (min-width: 1024px) {
             .header-curve {
                 border-bottom-left-radius: 120px;
                 border-bottom-right-radius: 120px;
             }
         }
-
         .float-animation {
             animation: float 6s ease-in-out infinite;
         }
-
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-15px); }
+        }
+        /* Estilo para garantir que as fotos fiquem com aspecto de corte bonito */
+        .photo-mask {
+            mask-image: radial-gradient(white, black);
+            -webkit-mask-image: -webkit-radial-gradient(white, black);
         }
     </style>
 </head>
@@ -62,18 +59,22 @@
 
     <!-- Header / Hero Section -->
     <header class="header-curve text-white pt-10 pb-28 px-6 relative overflow-hidden">
-        <!-- Dotted Path Decorativo -->
-        <svg class="absolute top-0 right-0 opacity-10 w-2/3 h-full pointer-events-none" viewBox="0 0 400 400">
-            <path d="M0,350 Q100,300 200,150 T400,50" fill="none" stroke="white" stroke-width="3" stroke-dasharray="12,12" />
-        </svg>
-
         <div class="max-w-6xl mx-auto flex flex-col items-center text-center relative z-10">
-            <!-- Logo Section -->
-            <div class="mb-10 bg-white p-4 rounded-2xl shadow-lg flex items-center gap-4">
-                <i class="fa-solid fa-paper-plane text-vj-blue text-3xl transform -rotate-12"></i>
-                <div class="text-left leading-none">
-                    <span class="block text-vj-blue font-black text-2xl tracking-tighter">Voando</span>
-                    <span class="block text-vj-orange font-black text-2xl tracking-tighter">Junto</span>
+            
+            <!-- LOGO REAL -->
+            <div class="mb-10">
+                <img src="logo-voando-junto-cor-V002-01.png" 
+                     alt="Logo Voando Junto" 
+                     class="h-20 md:h-28 w-auto drop-shadow-xl bg-white p-4 rounded-3xl"
+                     onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='flex'">
+                
+                <!-- Fallback caso a imagem não carregue -->
+                <div id="logo-fallback" class="hidden bg-white p-4 rounded-2xl shadow-lg items-center gap-4">
+                    <i class="fa-solid fa-paper-plane text-vj-blue text-3xl"></i>
+                    <div class="text-left leading-none">
+                        <span class="block text-vj-blue font-black text-2xl tracking-tighter">Voando</span>
+                        <span class="block text-vj-orange font-black text-2xl tracking-tighter">Junto</span>
+                    </div>
                 </div>
             </div>
 
@@ -91,22 +92,23 @@
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="max-w-6xl mx-auto -mt-20 px-6 relative z-20">
         <!-- E-book Feature Card -->
         <div class="bg-white rounded-[40px] shadow-2xl p-8 md:p-16 flex flex-col lg:flex-row gap-16 items-center">
-            <!-- Mockup com Estética da Logo -->
+            
+            <!-- CAPA DO E-BOOK REAL -->
             <div class="w-full lg:w-1/2 flex justify-center">
                 <div class="relative float-animation">
-                    <div class="w-64 md:w-80 h-[420px] bg-vj-navy rounded-3xl shadow-2xl border-[12px] border-white transform -rotate-2 relative overflow-hidden flex flex-col items-center justify-center text-white">
-                        <div class="p-8 text-center">
-                            <i class="fa-solid fa-satellite-dish text-vj-blue text-6xl mb-6"></i>
-                            <h3 class="text-2xl font-black italic uppercase leading-none mb-2">Radar de</h3>
-                            <h3 class="text-2xl font-black italic uppercase leading-none text-vj-orange mb-4">Navegação</h3>
-                            <div class="h-1 w-12 bg-white mx-auto rounded-full"></div>
+                    <!-- Espaço para a imagem da capa -->
+                    <div class="relative group">
+                        <img src="capa-ebook-radar.png" 
+                             alt="Capa do E-book Radar de Navegação" 
+                             class="w-64 md:w-80 h-auto rounded-3xl shadow-2xl border-[10px] border-white transform -rotate-2 group-hover:rotate-0 transition-transform duration-500"
+                             onerror="this.src='https://placehold.co/400x600/1D2D35/white?text=Radar+de+Navegação'">
+                        <!-- Selo de Gratuito -->
+                        <div class="absolute -top-6 -right-6 bg-vj-orange text-white w-20 h-20 rounded-full flex items-center justify-center font-black text-xs rotate-12 shadow-lg border-4 border-white uppercase text-center">
+                            Grátis <br> PDF
                         </div>
-                        <!-- Rastro decorativo dentro da capa -->
-                        <div class="absolute bottom-0 w-full h-24 opacity-20 dotted-path"></div>
                     </div>
                 </div>
             </div>
@@ -114,13 +116,13 @@
             <!-- Benefícios -->
             <div class="w-full lg:w-1/2 space-y-8">
                 <div class="inline-block bg-blue-50 text-vj-blue px-4 py-1 rounded-full text-sm font-bold uppercase tracking-wider mb-2">
-                    Especialista em Navegação Digital
+                    Guia Prático para Pais
                 </div>
                 <h2 class="text-3xl md:text-4xl font-extrabold text-vj-navy leading-tight">
                     Assuma a co-pilotagem da <br> vida digital do seu filho.
                 </h2>
                 <p class="text-slate-600 text-lg leading-relaxed">
-                    Unimos a psicologia clínica de **Marina Duarte** com a expertise em navegação digital de **Richarley Menescal** para entregar um porto seguro para sua família.
+                    Unimos a psicologia clínica de **Marina Duarte** com a expertise em estratégia digital de **Richarley Menescal** para entregar um porto seguro para sua família.
                 </p>
 
                 <div class="grid md:grid-cols-1 gap-6">
@@ -142,15 +144,6 @@
                             <p class="text-slate-500 text-sm">Por que ele fica tão irritado quando o jogo ou o celular param?</p>
                         </div>
                     </div>
-                    <div class="flex items-center gap-5 p-4 rounded-2xl hover:bg-slate-50 transition-colors">
-                        <div class="bg-vj-navy text-white w-12 h-12 flex items-center justify-center rounded-xl shrink-0 shadow-lg">
-                            <i class="fa-solid fa-scale-balanced"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-vj-navy">O Marco do ECA Digital</h4>
-                            <p class="text-slate-500 text-sm">Suas novas ferramentas legais para exigir um ambiente seguro.</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -159,90 +152,82 @@
         <section id="cadastro" class="py-24 max-w-2xl mx-auto text-center">
             <div class="mb-10">
                 <h3 class="text-3xl md:text-4xl font-extrabold mb-4">Ative o seu Radar</h3>
-                <p class="text-slate-500 text-lg">Receba o guia prático gratuitamente no seu e-mail e comece a voar junto hoje.</p>
+                <p class="text-slate-500 text-lg">Receba o guia gratuitamente no seu e-mail.</p>
             </div>
             
             <form class="bg-white p-8 md:p-12 rounded-[32px] shadow-2xl border border-blue-50 space-y-6 text-left relative overflow-hidden">
-                <!-- Detalhe decorativo -->
                 <div class="absolute top-0 right-0 w-32 h-32 bg-vj-blue opacity-5 -mr-16 -mt-16 rounded-full"></div>
 
                 <div>
                     <label class="block text-sm font-bold text-vj-navy mb-2">Como podemos te chamar?</label>
-                    <input type="text" placeholder="Seu nome completo" class="w-full px-5 py-4 rounded-2xl border-2 border-slate-100 focus:border-vj-blue focus:ring-0 outline-none transition-all placeholder:text-slate-300">
+                    <input type="text" placeholder="Seu nome" class="w-full px-5 py-4 rounded-2xl border-2 border-slate-100 focus:border-vj-blue outline-none transition-all">
                 </div>
                 
                 <div>
                     <label class="block text-sm font-bold text-vj-navy mb-2">Seu melhor e-mail</label>
-                    <input type="email" placeholder="exemplo@email.com" class="w-full px-5 py-4 rounded-2xl border-2 border-slate-100 focus:border-vj-blue focus:ring-0 outline-none transition-all placeholder:text-slate-300">
+                    <input type="email" placeholder="exemplo@email.com" class="w-full px-5 py-4 rounded-2xl border-2 border-slate-100 focus:border-vj-blue outline-none transition-all">
                 </div>
 
-                <div>
-                    <label class="block text-sm font-bold text-vj-navy mb-2">Qual o seu maior desafio hoje?</label>
-                    <select class="w-full px-5 py-4 rounded-2xl border-2 border-slate-100 focus:border-vj-blue outline-none transition-all bg-white">
-                        <option>Dificuldade em retirar as telas</option>
-                        <option>Isolamento do jovem no quarto</option>
-                        <option>Segurança e conteúdos perigosos</option>
-                        <option>Habilidades Sociais e amizades reais</option>
-                        <option>Outros</option>
-                    </select>
-                </div>
-                
                 <div class="pt-4">
-                    <button type="button" onclick="alert('Manual enviado com sucesso para seu e-mail!')" class="w-full bg-vj-blue hover:bg-blue-700 text-white font-black py-5 rounded-2xl shadow-xl transition-all transform active:scale-95 text-lg uppercase tracking-tight">
+                    <button type="button" onclick="alert('Radar ativado! Verifique seu e-mail em instantes.')" class="w-full bg-vj-blue hover:bg-blue-700 text-white font-black py-5 rounded-2xl shadow-xl transition-all transform active:scale-95 text-lg uppercase">
                         Solicitar Acesso ao Manual
                     </button>
-                    <p class="text-[11px] text-slate-400 text-center mt-6 leading-tight">
-                        Respeitamos sua privacidade. Seus dados estão seguros e você poderá cancelar o recebimento de nossos informativos a qualquer momento.
-                    </p>
                 </div>
             </form>
         </section>
 
-        <!-- Autores / Equipe de Solo -->
+        <!-- FOTOS DOS AUTORES -->
         <section class="py-16 border-t-2 border-dashed border-slate-200">
             <div class="flex flex-col md:flex-row gap-12 items-center bg-white p-10 rounded-[40px] shadow-sm">
-                <div class="relative">
-                    <div class="flex -space-x-8">
-                        <div class="w-28 h-28 rounded-3xl bg-vj-blue border-4 border-white shadow-xl flex items-center justify-center text-white font-black text-2xl">MD</div>
-                        <div class="w-28 h-28 rounded-3xl bg-vj-orange border-4 border-white shadow-xl flex items-center justify-center text-white font-black text-2xl">RM</div>
+                
+                <!-- ESPAÇO PARA FOTOS REAIS -->
+                <div class="relative flex -space-x-8">
+                    <!-- Foto Marina -->
+                    <div class="w-32 h-32 md:w-40 md:h-40 rounded-3xl bg-slate-100 border-4 border-white shadow-xl overflow-hidden photo-mask">
+                        <img src="foto-marina.jpg" 
+                             alt="Marina Duarte" 
+                             class="w-full h-full object-cover"
+                             onerror="this.src='https://placehold.co/200x200/008CE7/white?text=Marina'">
                     </div>
-                    <!-- Aviãozinho decorativo -->
+                    <!-- Foto Richarley -->
+                    <div class="w-32 h-32 md:w-40 md:h-40 rounded-3xl bg-slate-100 border-4 border-white shadow-xl overflow-hidden photo-mask">
+                        <img src="foto-richarley.jpg" 
+                             alt="Richarley Menescal" 
+                             class="w-full h-full object-cover"
+                             onerror="this.src='https://placehold.co/200x200/F14124/white?text=Richarley'">
+                    </div>
                     <i class="fa-solid fa-paper-plane absolute -top-4 -right-4 text-vj-navy transform rotate-12 text-2xl"></i>
                 </div>
+
                 <div class="flex-1 text-center md:text-left space-y-3">
-                    <h4 class="font-extrabold text-2xl text-vj-navy">Marina Duarte & Richarley Menescal</h4>
-                    <p class="text-slate-500 italic text-lg max-w-2xl leading-relaxed">
-                        "Unimos o olhar sensível da psicologia com a estratégia digital para garantir que o 'pouso' no mundo real seja sempre o melhor destino para seu filho."
+                    <h4 class="font-extrabold text-2xl text-vj-navy">Equipe de Solo: Marina & Richarley</h4>
+                    <p class="text-slate-500 italic text-lg leading-relaxed">
+                        "Unimos o olhar da psicologia com a estratégia digital para garantir que o 'pouso' no mundo real seja o melhor destino para seu filho."
                     </p>
-                    <div class="flex gap-4 justify-center md:justify-start pt-2">
-                        <span class="bg-vj-navy text-white text-[10px] px-3 py-1 rounded-full font-bold uppercase">Psicologia Clínica</span>
-                        <span class="bg-vj-navy text-white text-[10px] px-3 py-1 rounded-full font-bold uppercase">Estratégia Digital</span>
+                    <div class="flex gap-3 justify-center md:justify-start pt-2">
+                        <span class="bg-vj-blue text-white text-[10px] px-3 py-1 rounded-full font-bold uppercase">Psicologia Clínica</span>
+                        <span class="bg-vj-orange text-white text-[10px] px-3 py-1 rounded-full font-bold uppercase">Estratégia Digital</span>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-vj-navy text-slate-400 py-16 px-6 mt-12">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <div class="text-center md:text-left">
+    <footer class="bg-vj-navy text-slate-400 py-16 px-6 mt-12 text-center md:text-left">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div>
                 <div class="flex items-center gap-3 justify-center md:justify-start mb-4">
                     <i class="fa-solid fa-paper-plane text-vj-blue"></i>
                     <span class="font-black text-white italic uppercase tracking-tighter">Voando Junto</span>
                 </div>
-                <p class="text-sm">Treinamento em Habilidades Sociais e <br> Bem-estar Digital para Famílias.</p>
+                <p class="text-sm">© 2025 Voando Junto. <br> Todos os direitos reservados.</p>
             </div>
-            <div class="text-center md:text-right space-y-2">
-                <p class="text-xs uppercase font-bold tracking-widest text-slate-500">Desenvolvido por</p>
-                <p class="text-white font-bold">Equipe de Solo Voando Junto © 2025</p>
-                <div class="flex gap-4 justify-center md:justify-end pt-4">
-                    <a href="#" class="hover:text-vj-blue"><i class="fa-brands fa-instagram text-xl"></i></a>
-                    <a href="#" class="hover:text-vj-blue"><i class="fa-brands fa-youtube text-xl"></i></a>
-                    <a href="#" class="hover:text-vj-blue"><i class="fa-brands fa-tiktok text-xl"></i></a>
-                </div>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram text-2xl"></i></a>
+                <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-tiktok text-2xl"></i></a>
+                <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-youtube text-2xl"></i></a>
             </div>
         </div>
     </footer>
-
 </body>
 </html>
