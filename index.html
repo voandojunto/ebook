@@ -60,7 +60,7 @@
     <header class="header-curve text-white pt-10 pb-28 px-6 relative overflow-hidden">
         <div class="max-w-6xl mx-auto flex flex-col items-center text-center relative z-10">
             
-            <!-- LOGO REAL (TAMANHO AMPLIADO) -->
+            <!-- LOGO REAL -->
             <div class="mb-10">
                 <img src="logo-voando-junto-cor-V002-01.png" 
                      alt="Logo Voando Junto" 
@@ -120,7 +120,6 @@
                 </p>
 
                 <div class="grid md:grid-cols-1 gap-6">
-                    <!-- Sequestro da Atenção -->
                     <div class="flex items-center gap-5 p-4 rounded-2xl hover:bg-slate-50 transition-colors">
                         <div class="bg-vj-blue text-white w-12 h-12 flex items-center justify-center rounded-xl shrink-0 shadow-lg">
                             <i class="fa-solid fa-lock"></i>
@@ -130,7 +129,6 @@
                             <p class="text-slate-500 text-sm">Como os algoritmos são desenhados para roubar o foco.</p>
                         </div>
                     </div>
-                    <!-- Gangorra de Dopamina -->
                     <div class="flex items-center gap-5 p-4 rounded-2xl hover:bg-slate-50 transition-colors">
                         <div class="bg-vj-orange text-white w-12 h-12 flex items-center justify-center rounded-xl shrink-0 shadow-lg">
                             <i class="fa-solid fa-brain"></i>
@@ -140,7 +138,6 @@
                             <p class="text-slate-500 text-sm">Entenda o ciclo químico que causa a irritabilidade ao parar.</p>
                         </div>
                     </div>
-                    <!-- A Geração do Quarto -->
                     <div class="flex items-center gap-5 p-4 rounded-2xl hover:bg-slate-50 transition-colors">
                         <div class="bg-vj-navy text-white w-12 h-12 flex items-center justify-center rounded-xl shrink-0 shadow-lg">
                             <i class="fa-solid fa-door-closed"></i>
@@ -158,7 +155,7 @@
         <section id="cadastro" class="py-24 max-w-2xl mx-auto text-center">
             <div class="mb-10">
                 <h3 class="text-3xl md:text-4xl font-extrabold mb-4">Ative o seu Radar</h3>
-                <p class="text-slate-500 text-lg">Receba o guia gratuitamente no seu e-mail.</p>
+                <p class="text-slate-500 text-lg">Inscreva-se abaixo para baixar o guia imediatamente e receber nossas atualizações.</p>
             </div>
             
             <form id="radarForm" class="bg-white p-8 md:p-12 rounded-[32px] shadow-2xl border border-blue-50 space-y-6 text-left relative overflow-hidden">
@@ -185,9 +182,17 @@
                     </select>
                 </div>
 
+                <!-- CAMPO DE AUTORIZAÇÃO (OPT-IN) -->
+                <div class="flex items-start gap-3 pt-2 bg-slate-50 p-4 rounded-2xl">
+                    <input type="checkbox" name="autorizacao" value="Sim" checked class="mt-1 w-5 h-5 rounded border-slate-300 text-vj-blue focus:ring-vj-blue">
+                    <label class="text-xs text-slate-500 leading-tight">
+                        Autorizo o <strong>Voando Junto</strong> a enviar atualizações, dicas de segurança digital e conteúdos exclusivos da <strong>Marina</strong> e do <strong>Richarley</strong> para o meu e-mail.
+                    </label>
+                </div>
+
                 <div class="pt-4">
                     <button type="submit" id="submitBtn" class="w-full bg-vj-blue hover:bg-blue-700 text-white font-black py-5 rounded-2xl shadow-xl transition-all transform active:scale-95 text-lg uppercase tracking-tight">
-                        Solicitar Acesso ao Manual
+                        Baixar Guia Gratuito Agora
                     </button>
                     <p id="formStatus" class="hidden text-center mt-4 font-bold"></p>
                 </div>
@@ -197,7 +202,6 @@
         <!-- FOTOS DOS AUTORES -->
         <section class="py-16 border-t-2 border-dashed border-slate-200">
             <div class="flex flex-col md:flex-row gap-12 items-center bg-white p-10 rounded-[40px] shadow-sm">
-                
                 <div class="relative flex -space-x-8">
                     <div class="w-32 h-32 md:w-40 md:h-40 rounded-3xl bg-slate-100 border-4 border-white shadow-xl overflow-hidden photo-mask">
                         <img src="foto-marina.jpg" alt="Marina Duarte" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/200x200/008CE7/white?text=Marina'">
@@ -207,7 +211,6 @@
                     </div>
                     <i class="fa-solid fa-paper-plane absolute -top-4 -right-4 text-vj-navy transform rotate-12 text-2xl"></i>
                 </div>
-
                 <div class="flex-1 text-center md:text-left space-y-3">
                     <h4 class="font-extrabold text-2xl text-vj-navy">Equipe de Solo: <strong>Marina Duarte</strong> & <strong>Richarley Menescal</strong></h4>
                     <p class="text-slate-500 italic text-lg leading-relaxed">
@@ -225,40 +228,20 @@
     <footer class="bg-vj-navy text-slate-400 py-16 px-6 mt-12 text-center md:text-left">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
             <div>
-                <!-- LOGO OFICIAL NO RODAPÉ -->
                 <div class="flex flex-col items-center md:items-start gap-4 mb-6">
-                    <img src="logo-voando-junto-cor-V002-01.png" 
-                         alt="Logo Voando Junto" 
-                         class="h-20 w-auto bg-white p-3 rounded-2xl shadow-lg"
-                         onerror="this.style.display='none'; document.getElementById('footer-fallback').style.display='block'">
-                    <div id="footer-fallback" class="hidden">
-                        <span class="font-black text-white italic uppercase tracking-tighter">Voando Junto</span>
-                    </div>
+                    <img src="logo-voando-junto-cor-V002-01.png" alt="Logo Voando Junto" class="h-20 w-auto bg-white p-3 rounded-2xl shadow-lg" onerror="this.style.display='none';">
                 </div>
                 <p class="text-sm">© 2025 Voando Junto. <br> Todos os direitos reservados.</p>
             </div>
             <div class="flex flex-col items-center md:items-end gap-6">
-                <!-- LINKS SOCIAIS PADRONIZADOS -->
                 <div class="flex flex-wrap gap-4 items-center justify-center md:justify-end">
-                    <!-- LINKTREE -->
                     <a href="https://linktr.ee/voandojunto" target="_blank" class="hover:bg-white/10 text-white transition-colors flex items-center gap-2 bg-white/5 px-4 py-2 rounded-xl border border-white/10">
                         <i class="fa-solid fa-tree text-lg text-green-400"></i>
                         <span class="text-[10px] font-bold uppercase tracking-widest">Linktree</span>
                     </a>
-                    <!-- INSTAGRAM -->
                     <a href="https://www.instagram.com/voandojunto.oficial/" target="_blank" class="hover:bg-white/10 text-white transition-colors flex items-center gap-2 bg-white/5 px-4 py-2 rounded-xl border border-white/10">
                         <i class="fa-brands fa-instagram text-lg text-pink-400"></i>
                         <span class="text-[10px] font-bold uppercase tracking-widest">Instagram</span>
-                    </a>
-                    <!-- TIKTOK -->
-                    <a href="#" target="_blank" class="hover:bg-white/10 text-white transition-colors flex items-center gap-2 bg-white/5 px-4 py-2 rounded-xl border border-white/10">
-                        <i class="fa-brands fa-tiktok text-lg text-cyan-400"></i>
-                        <span class="text-[10px] font-bold uppercase tracking-widest">TikTok</span>
-                    </a>
-                    <!-- YOUTUBE -->
-                    <a href="#" target="_blank" class="hover:bg-white/10 text-white transition-colors flex items-center gap-2 bg-white/5 px-4 py-2 rounded-xl border border-white/10">
-                        <i class="fa-brands fa-youtube text-lg text-red-500"></i>
-                        <span class="text-[10px] font-bold uppercase tracking-widest">YouTube</span>
                     </a>
                 </div>
                 <p class="text-xs text-slate-500 uppercase tracking-widest font-bold">Segurança Digital e Habilidades Sociais</p>
@@ -274,31 +257,37 @@
         form.onsubmit = async (e) => {
             e.preventDefault();
             btn.disabled = true;
-            btn.innerText = "ATIVANDO RADAR...";
+            btn.innerText = "PREPARANDO DOWNLOAD...";
             
+            // Substitua pelo link direto do seu PDF no Google Drive
+            const pdfDownloadLink = 'https://drive.google.com/uc?export=download&id=COLOQUE_AQUI_O_ID_DO_ARQUIVO';
             const scriptURL = 'https://script.google.com/macros/s/AKfycbzAREpv87mMLfN70nyzzOWEn2rybWXwpFFzfixo8oqrgqNlChArgM07xNL5-B6ubPzSMQ/exec';
             
             try {
+                // Envia para a planilha e banco de dados
                 await fetch(scriptURL, { 
                     method: 'POST', 
                     body: new FormData(form),
                     mode: 'no-cors' 
                 });
                 
-                status.innerText = "Radar ativado! Verifique seu e-mail em instantes.";
+                status.innerText = "Inscrição confirmada! O download começará agora.";
                 status.classList.remove('hidden', 'text-red-500');
                 status.classList.add('text-vj-blue');
+                
+                // Inicia o download imediato abrindo o link em uma nova aba
+                window.open(pdfDownloadLink, '_blank');
+                
                 form.reset();
             } catch (error) {
-                status.innerText = "Ops! Ocorreu um erro ao enviar. Tente novamente.";
+                status.innerText = "Ops! Erro ao processar. Mas você pode tentar novamente.";
                 status.classList.remove('hidden', 'text-vj-blue');
                 status.classList.add('text-red-500');
             } finally {
                 btn.disabled = false;
-                btn.innerText = "SOLICITAR ACESSO AO MANUAL";
+                btn.innerText = "BAIXAR GUIA GRATUITO AGORA";
             }
         };
     </script>
-
 </body>
 </html>
