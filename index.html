@@ -64,7 +64,7 @@
             <div class="mb-10">
                 <img src="logo-voando-junto-cor-V002-01.png" 
                      alt="Logo Voando Junto" 
-                     class="h-28 md:h-40 w-auto drop-shadow-2xl bg-white p-6 rounded-[32px]"
+                     class="h-32 md:h-48 w-auto drop-shadow-2xl bg-white p-6 rounded-[32px]"
                      onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='flex'">
                 
                 <div id="logo-fallback" class="hidden bg-white p-4 rounded-2xl shadow-lg items-center gap-4">
@@ -148,7 +148,7 @@
                             <i class="fa-solid fa-door-closed"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold text-vj-navy uppercase text-xs tracking-widest mb-1 text-vj-orange">Novo Capítulo</h4>
+                            <h4 class="font-bold text-vj-navy uppercase text-xs tracking-widest mb-1 text-vj-orange">Capítulo 4</h4>
                             <h4 class="font-bold text-vj-navy">A Geração do Quarto</h4>
                             <p class="text-slate-500 text-sm">O perigo do isolamento e como trazer o jovem de volta ao mundo real.</p>
                         </div>
@@ -192,7 +192,7 @@
                     <button type="submit" id="submitBtn" class="w-full bg-vj-blue hover:bg-blue-700 text-white font-black py-5 rounded-2xl shadow-xl transition-all transform active:scale-95 text-lg uppercase tracking-tight">
                         Solicitar Acesso ao Manual
                     </button>
-                    <p id="formStatus" class="hidden text-center mt-4 font-bold text-vj-blue"></p>
+                    <p id="formStatus" class="hidden text-center mt-4 font-bold"></p>
                 </div>
             </form>
         </section>
@@ -243,7 +243,6 @@
     </footer>
 
     <script>
-        // Lógica simples para envio do formulário (Exemplo de integração futura)
         const form = document.getElementById('radarForm');
         const status = document.getElementById('formStatus');
         const btn = document.getElementById('submitBtn');
@@ -253,18 +252,30 @@
             btn.disabled = true;
             btn.innerText = "ATIVANDO RADAR...";
             
-            // Aqui você colocaria a URL do seu Google Apps Script (Web App)
-            // const scriptURL = 'SUA_URL_DO_APPS_SCRIPT_AQUI';
+            // URL do seu Google Apps Script (Web App)
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbzAREpv87mMLfN70nyzzOWEn2rybWXwpFFzfixo8oqrgqNlChArgM07xNL5-B6ubPzSMQ/exec';
             
-            // Simulação de envio
-            setTimeout(() => {
+            try {
+                // Enviando os dados via POST para o Apps Script
+                await fetch(scriptURL, { 
+                    method: 'POST', 
+                    body: new FormData(form),
+                    mode: 'no-cors' // Google Apps Script requer no-cors para evitar erros de redirecionamento
+                });
+                
                 status.innerText = "Radar ativado! Verifique seu e-mail em instantes.";
-                status.classList.remove('hidden');
+                status.classList.remove('hidden', 'text-red-500');
+                status.classList.add('text-vj-blue');
                 form.reset();
+            } catch (error) {
+                status.innerText = "Ops! Ocorreu um erro ao enviar. Tente novamente.";
+                status.classList.remove('hidden', 'text-vj-blue');
+                status.classList.add('text-red-500');
+            } finally {
                 btn.disabled = false;
                 btn.innerText = "SOLICITAR ACESSO AO MANUAL";
-            }, 1500);
+            }
         };
     </script>
 </body>
-</ht
+</html
