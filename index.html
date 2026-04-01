@@ -48,7 +48,6 @@
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-15px); }
         }
-        /* Estilo para garantir que as fotos fiquem com aspecto de corte bonito */
         .photo-mask {
             mask-image: radial-gradient(white, black);
             -webkit-mask-image: -webkit-radial-gradient(white, black);
@@ -61,14 +60,13 @@
     <header class="header-curve text-white pt-10 pb-28 px-6 relative overflow-hidden">
         <div class="max-w-6xl mx-auto flex flex-col items-center text-center relative z-10">
             
-            <!-- LOGO REAL -->
+            <!-- LOGO REAL (TAMANHO AMPLIADO) -->
             <div class="mb-10">
                 <img src="logo-voando-junto-cor-V002-01.png" 
                      alt="Logo Voando Junto" 
-                     class="h-20 md:h-28 w-auto drop-shadow-xl bg-white p-4 rounded-3xl"
+                     class="h-28 md:h-40 w-auto drop-shadow-2xl bg-white p-6 rounded-[32px]"
                      onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='flex'">
                 
-                <!-- Fallback caso a imagem não carregue -->
                 <div id="logo-fallback" class="hidden bg-white p-4 rounded-2xl shadow-lg items-center gap-4">
                     <i class="fa-solid fa-paper-plane text-vj-blue text-3xl"></i>
                     <div class="text-left leading-none">
@@ -86,7 +84,7 @@
                 Baixe o guia <strong>"Radar de Navegação"</strong> e aprenda a proteger o foco, a saúde mental e as conexões reais da sua família.
             </p>
 
-            <a href="#cadastro" class="bg-vj-orange hover:bg-orange-600 text-white font-extrabold py-5 px-12 rounded-full text-xl shadow-2xl transition-all transform hover:scale-105 active:scale-95">
+            <a href="#cadastro" class="bg-vj-orange hover:bg-orange-600 text-white font-extrabold py-5 px-14 rounded-full text-xl shadow-2xl transition-all transform hover:scale-105 active:scale-95">
                 BAIXAR MEU GUIA GRATUITO
             </a>
         </div>
@@ -96,16 +94,13 @@
         <!-- E-book Feature Card -->
         <div class="bg-white rounded-[40px] shadow-2xl p-8 md:p-16 flex flex-col lg:flex-row gap-16 items-center">
             
-            <!-- CAPA DO E-BOOK REAL -->
             <div class="w-full lg:w-1/2 flex justify-center">
                 <div class="relative float-animation">
-                    <!-- Espaço para a imagem da capa -->
                     <div class="relative group">
                         <img src="capa-ebook-radar.png" 
                              alt="Capa do E-book Radar de Navegação" 
                              class="w-64 md:w-80 h-auto rounded-3xl shadow-2xl border-[10px] border-white transform -rotate-2 group-hover:rotate-0 transition-transform duration-500"
                              onerror="this.src='https://placehold.co/400x600/1D2D35/white?text=Radar+de+Navegação'">
-                        <!-- Selo de Gratuito -->
                         <div class="absolute -top-6 -right-6 bg-vj-orange text-white w-20 h-20 rounded-full flex items-center justify-center font-black text-xs rotate-12 shadow-lg border-4 border-white uppercase text-center">
                             Grátis <br> PDF
                         </div>
@@ -113,7 +108,6 @@
                 </div>
             </div>
 
-            <!-- Benefícios -->
             <div class="w-full lg:w-1/2 space-y-8">
                 <div class="inline-block bg-blue-50 text-vj-blue px-4 py-1 rounded-full text-sm font-bold uppercase tracking-wider mb-2">
                     Guia Prático para Pais
@@ -126,22 +120,37 @@
                 </p>
 
                 <div class="grid md:grid-cols-1 gap-6">
+                    <!-- Sequestro da Atenção -->
                     <div class="flex items-center gap-5 p-4 rounded-2xl hover:bg-slate-50 transition-colors">
                         <div class="bg-vj-blue text-white w-12 h-12 flex items-center justify-center rounded-xl shrink-0 shadow-lg">
                             <i class="fa-solid fa-lock"></i>
                         </div>
                         <div>
+                            <h4 class="font-bold text-vj-navy uppercase text-xs tracking-widest mb-1">Capítulo 1</h4>
                             <h4 class="font-bold text-vj-navy">O Sequestro da Atenção</h4>
-                            <p class="text-slate-500 text-sm">Entenda como o design das redes rouba o foco do seu filho.</p>
+                            <p class="text-slate-500 text-sm">Como os algoritmos são desenhados para roubar o foco.</p>
                         </div>
                     </div>
+                    <!-- Gangorra de Dopamina -->
                     <div class="flex items-center gap-5 p-4 rounded-2xl hover:bg-slate-50 transition-colors">
                         <div class="bg-vj-orange text-white w-12 h-12 flex items-center justify-center rounded-xl shrink-0 shadow-lg">
                             <i class="fa-solid fa-brain"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold text-vj-navy">A Gangorra de Dopamina</h4>
-                            <p class="text-slate-500 text-sm">Por que ele fica tão irritado quando o jogo ou o celular param?</p>
+                            <h4 class="font-bold text-vj-navy uppercase text-xs tracking-widest mb-1">Capítulo 2</h4>
+                            <h4 class="font-bold text-vj-navy">O Manche da Atenção (Dopamina)</h4>
+                            <p class="text-slate-500 text-sm">Entenda o ciclo químico que causa a irritabilidade ao parar.</p>
+                        </div>
+                    </div>
+                    <!-- A Geração do Quarto -->
+                    <div class="flex items-center gap-5 p-4 rounded-2xl hover:bg-slate-50 transition-colors border-l-4 border-vj-navy bg-slate-50/50">
+                        <div class="bg-vj-navy text-white w-12 h-12 flex items-center justify-center rounded-xl shrink-0 shadow-lg">
+                            <i class="fa-solid fa-door-closed"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-vj-navy uppercase text-xs tracking-widest mb-1 text-vj-orange">Novo Capítulo</h4>
+                            <h4 class="font-bold text-vj-navy">A Geração do Quarto</h4>
+                            <p class="text-slate-500 text-sm">O perigo do isolamento e como trazer o jovem de volta ao mundo real.</p>
                         </div>
                     </div>
                 </div>
@@ -155,23 +164,35 @@
                 <p class="text-slate-500 text-lg">Receba o guia gratuitamente no seu e-mail.</p>
             </div>
             
-            <form class="bg-white p-8 md:p-12 rounded-[32px] shadow-2xl border border-blue-50 space-y-6 text-left relative overflow-hidden">
+            <form id="radarForm" class="bg-white p-8 md:p-12 rounded-[32px] shadow-2xl border border-blue-50 space-y-6 text-left relative overflow-hidden">
                 <div class="absolute top-0 right-0 w-32 h-32 bg-vj-blue opacity-5 -mr-16 -mt-16 rounded-full"></div>
 
                 <div>
                     <label class="block text-sm font-bold text-vj-navy mb-2">Como podemos te chamar?</label>
-                    <input type="text" placeholder="Seu nome" class="w-full px-5 py-4 rounded-2xl border-2 border-slate-100 focus:border-vj-blue outline-none transition-all">
+                    <input type="text" name="nome" required placeholder="Seu nome" class="w-full px-5 py-4 rounded-2xl border-2 border-slate-100 focus:border-vj-blue outline-none transition-all">
                 </div>
                 
                 <div>
                     <label class="block text-sm font-bold text-vj-navy mb-2">Seu melhor e-mail</label>
-                    <input type="email" placeholder="exemplo@email.com" class="w-full px-5 py-4 rounded-2xl border-2 border-slate-100 focus:border-vj-blue outline-none transition-all">
+                    <input type="email" name="email" required placeholder="exemplo@email.com" class="w-full px-5 py-4 rounded-2xl border-2 border-slate-100 focus:border-vj-blue outline-none transition-all">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-vj-navy mb-2">Qual o maior desafio hoje com o digital?</label>
+                    <select name="desafio" class="w-full px-5 py-4 rounded-2xl border-2 border-slate-100 focus:border-vj-blue outline-none transition-all bg-white">
+                        <option value="retirar-telas">Dificuldade em retirar as telas</option>
+                        <option value="isolamento">Isolamento do jovem no quarto</option>
+                        <option value="seguranca">Segurança e conteúdos perigosos</option>
+                        <option value="habilidades-sociais">Habilidades Sociais e amizades reais</option>
+                        <option value="outro">Outros desafios</option>
+                    </select>
                 </div>
 
                 <div class="pt-4">
-                    <button type="button" onclick="alert('Radar ativado! Verifique seu e-mail em instantes.')" class="w-full bg-vj-blue hover:bg-blue-700 text-white font-black py-5 rounded-2xl shadow-xl transition-all transform active:scale-95 text-lg uppercase">
+                    <button type="submit" id="submitBtn" class="w-full bg-vj-blue hover:bg-blue-700 text-white font-black py-5 rounded-2xl shadow-xl transition-all transform active:scale-95 text-lg uppercase tracking-tight">
                         Solicitar Acesso ao Manual
                     </button>
+                    <p id="formStatus" class="hidden text-center mt-4 font-bold text-vj-blue"></p>
                 </div>
             </form>
         </section>
@@ -180,21 +201,12 @@
         <section class="py-16 border-t-2 border-dashed border-slate-200">
             <div class="flex flex-col md:flex-row gap-12 items-center bg-white p-10 rounded-[40px] shadow-sm">
                 
-                <!-- ESPAÇO PARA FOTOS REAIS -->
                 <div class="relative flex -space-x-8">
-                    <!-- Foto Marina -->
                     <div class="w-32 h-32 md:w-40 md:h-40 rounded-3xl bg-slate-100 border-4 border-white shadow-xl overflow-hidden photo-mask">
-                        <img src="foto-marina.jpg" 
-                             alt="Marina Duarte" 
-                             class="w-full h-full object-cover"
-                             onerror="this.src='https://placehold.co/200x200/008CE7/white?text=Marina'">
+                        <img src="foto-marina.jpg" alt="Marina Duarte" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/200x200/008CE7/white?text=Marina'">
                     </div>
-                    <!-- Foto Richarley -->
                     <div class="w-32 h-32 md:w-40 md:h-40 rounded-3xl bg-slate-100 border-4 border-white shadow-xl overflow-hidden photo-mask">
-                        <img src="foto-richarley.jpg" 
-                             alt="Richarley Menescal" 
-                             class="w-full h-full object-cover"
-                             onerror="this.src='https://placehold.co/200x200/F14124/white?text=Richarley'">
+                        <img src="foto-richarley.jpg" alt="Richarley Menescal" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/200x200/F14124/white?text=Richarley'">
                     </div>
                     <i class="fa-solid fa-paper-plane absolute -top-4 -right-4 text-vj-navy transform rotate-12 text-2xl"></i>
                 </div>
@@ -229,5 +241,30 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Lógica simples para envio do formulário (Exemplo de integração futura)
+        const form = document.getElementById('radarForm');
+        const status = document.getElementById('formStatus');
+        const btn = document.getElementById('submitBtn');
+
+        form.onsubmit = async (e) => {
+            e.preventDefault();
+            btn.disabled = true;
+            btn.innerText = "ATIVANDO RADAR...";
+            
+            // Aqui você colocaria a URL do seu Google Apps Script (Web App)
+            // const scriptURL = 'SUA_URL_DO_APPS_SCRIPT_AQUI';
+            
+            // Simulação de envio
+            setTimeout(() => {
+                status.innerText = "Radar ativado! Verifique seu e-mail em instantes.";
+                status.classList.remove('hidden');
+                form.reset();
+                btn.disabled = false;
+                btn.innerText = "SOLICITAR ACESSO AO MANUAL";
+            }, 1500);
+        };
+    </script>
 </body>
-</html>
+</ht
