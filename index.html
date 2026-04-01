@@ -116,7 +116,7 @@
                     Assuma a co-pilotagem da <br> vida digital do seu filho.
                 </h2>
                 <p class="text-slate-600 text-lg leading-relaxed">
-                    Unimos a psicologia clínica de **Marina Duarte** com a expertise em estratégia digital de **Richarley Menescal** para entregar um porto seguro para sua família.
+                    Unimos a psicologia clínica de <strong>Marina Duarte</strong> com a expertise em estratégia digital de <strong>Richarley Menescal</strong> para entregar um porto seguro para sua família.
                 </p>
 
                 <div class="grid md:grid-cols-1 gap-6">
@@ -126,7 +126,6 @@
                             <i class="fa-solid fa-lock"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold text-vj-navy uppercase text-xs tracking-widest mb-1">Capítulo 1</h4>
                             <h4 class="font-bold text-vj-navy">O Sequestro da Atenção</h4>
                             <p class="text-slate-500 text-sm">Como os algoritmos são desenhados para roubar o foco.</p>
                         </div>
@@ -137,7 +136,6 @@
                             <i class="fa-solid fa-brain"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold text-vj-navy uppercase text-xs tracking-widest mb-1">Capítulo 2</h4>
                             <h4 class="font-bold text-vj-navy">O Manche da Atenção (Dopamina)</h4>
                             <p class="text-slate-500 text-sm">Entenda o ciclo químico que causa a irritabilidade ao parar.</p>
                         </div>
@@ -148,7 +146,6 @@
                             <i class="fa-solid fa-door-closed"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold text-vj-navy uppercase text-xs tracking-widest mb-1 text-vj-orange">Capítulo 4</h4>
                             <h4 class="font-bold text-vj-navy">A Geração do Quarto</h4>
                             <p class="text-slate-500 text-sm">O perigo do isolamento e como trazer o jovem de volta ao mundo real.</p>
                         </div>
@@ -252,15 +249,13 @@
             btn.disabled = true;
             btn.innerText = "ATIVANDO RADAR...";
             
-            // URL do seu Google Apps Script (Web App)
             const scriptURL = 'https://script.google.com/macros/s/AKfycbzAREpv87mMLfN70nyzzOWEn2rybWXwpFFzfixo8oqrgqNlChArgM07xNL5-B6ubPzSMQ/exec';
             
             try {
-                // Enviando os dados via POST para o Apps Script
                 await fetch(scriptURL, { 
                     method: 'POST', 
                     body: new FormData(form),
-                    mode: 'no-cors' // Google Apps Script requer no-cors para evitar erros de redirecionamento
+                    mode: 'no-cors' 
                 });
                 
                 status.innerText = "Radar ativado! Verifique seu e-mail em instantes.";
@@ -278,4 +273,4 @@
         };
     </script>
 </body>
-</html
+</html>
